@@ -1,0 +1,68 @@
+<?php
+/*
+ * meet-the-team
+ *
+ * @copyright Copyright © 2017 Kinspeed. All rights reserved.
+ * @author    luke.paoloni@kinspeed.com
+ */
+?>
+<?php
+    /** @var \Kinspeed\MeetTeam\Block\Frontend\MeetTeam $block  */
+    $teamMembers = $block->getTeamMembers();
+?>
+
+
+<div id="owl-demo" class="owl-carousel owl-theme">
+    <?php foreach ($teamMembers as $member): ?>
+    <div class="meet__team--item pull-left">
+        <a href="#modal-<?= $member->getId(); ?>">
+            <img src="<?= $member->getImageSrc(); ?>" class="slider-image" data-id="<?= $member->getId(); ?>" alt="<?=
+                $member->getName(); ?>">
+        </a>
+        <div class="remodal" data-remodal-id="modal-<?= $member->getId(); ?>">
+            <button class="remodal-close" data-remodal-action="close"></button>
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-40">
+                        <img src="<?= $member->getImageSrc(); ?>" alt="<?=
+                            $member->getName(); ?>">
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-60">
+                        <h4 class="popupContent__name">
+                            <?= $member->getName(); ?>
+                        </h4>
+                        <h4 class="popupContent__job-title">
+                            <?= $member->getJobTitle(); ?>
+                        </h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-mt-50">
+                        <div class="bottom-text">
+                            <?= $member->getAboutMe(); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#owl-demo": {
+            "OwlCarousel": {
+                "autoPlay": 3000,
+                "items": 4,
+                "itemsDesktop": [1199, 3],
+                "itemsDesktopSmall": [979, 3]
+            }
+        },
+        ".remodal": {
+            "remodal":{}
+        }
+    }
+</script>
+
+
+
+

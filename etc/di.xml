@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * di
+ * @copyright Copyright © 2017 Kinspeed. All rights reserved.
+ * @author    luke.paoloni@kinspeed.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Temporal fix to 2.1 problem with eav attributes: https://github.com/magento/magento2/issues/5339 -->
+    <preference for="Kinspeed\MeetTeam\Api\MeetTeamRepositoryInterface" type="Kinspeed\MeetTeam\Model\MeetTeamRepository"/>
+    <preference for="Kinspeed\MeetTeam\Api\Data\MeetTeamInterface" type="Kinspeed\MeetTeam\Model\MeetTeam"/>
+    <preference for="Kinspeed\MeetTeam\Api\Data\MeetTeamSearchResultInterface" type="Kinspeed\MeetTeam\Model\MeetTeamSearchResult"/>
+    <type name="Magento\Eav\Model\Entity\AttributeCache">
+        <arguments>
+            <argument name="unsupportedTypes" xsi:type="array">
+                <item name="kinspeed_team" xsi:type="string">kinspeed_team</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- end temporal fix -->
+    <type name="Kinspeed\MeetTeam\UI\Component\Listing\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Kinspeed\MeetTeam\Model\ResourceModel\Team\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RefGridFilterPool</argument>
+        </arguments>
+    </type>
+    <virtualType name="RefGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="kinspeed_meetteam_team_listing_data_source" xsi:type="string">Kinspeed\MeetTeam\Model\ResourceModel\Team\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Kinspeed\MeetTeam\Model\ResourceModel\Team\Grid\Collection">
+        <arguments>
+            <argument name="eventPrefix" xsi:type="string">kinspeed_meetteam_team_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">kinspeed_meetteam_team_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Kinspeed\MeetTeam\Model\ResourceModel\Team</argument>
+        </arguments>
+    </type>
+    <virtualType name="KinspeedDepartmentGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Kinspeed\MeetTeam\Model\ResourceModel\Department\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">KinspeedDepartmentGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="KinspeedDepartmentGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="kinspeed_meetteam_department_listing_data_source" xsi:type="string">Kinspeed\MeetTeam\Model\ResourceModel\Department\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Kinspeed\MeetTeam\Model\ResourceModel\Department\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">kinspeed_meetteam_department</argument>
+            <argument name="eventPrefix" xsi:type="string">kinspeed_meetteam_department_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">kinspeed_meetteam_department_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Kinspeed\MeetTeam\Model\ResourceModel\Department</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * menu
+ * @copyright Copyright © 2017 Kinspeed. All rights reserved.
+ * @author    luke.paoloni@kinspeed.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Kinspeed_MeetTeam::team" title="Team" module="Kinspeed_MeetTeam" sortOrder="50" parent="Magento_Backend::content" action="kinspeed_meetteam/team" resource="Kinspeed_MeetTeam::team"/>
+
+        <add id="Kinspeed_MeetTeam::department" title="Department" module="Kinspeed_MeetTeam" sortOrder="50" parent="Magento_Backend::content" action="kinspeed_meetteam/department" resource="Kinspeed_MeetTeam::department"/>
+    </menu>
+</config>

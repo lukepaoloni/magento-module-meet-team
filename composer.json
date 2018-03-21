@@ -1,0 +1,20 @@
+{
+  "name": "kinspeed/magento2-module-meetteam",
+  "description": "a kinspeed module to manage team members and output their information on the frontend.",
+  "require": {
+    "php": "~7.0.0"
+  },
+  "type": "magento2-module",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Kinspeed\\MeetTeam\\": ""
+    }
+  }
+}

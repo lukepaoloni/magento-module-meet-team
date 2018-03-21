@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * webapi
+ *
+ * @copyright Copyright © 2018 Kinspeed Ltd. All rights reserved.
+ * @author    luke.paoloni@kinspeed.com
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route method="GET" url="/meet-team-api/kinspeed_meetteam/:id">
+        <service class="Kinspeed\MeetTeam\Api\MeetTeamRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="Magento_Customer::manage"/>
+        </resources>
+    </route>
+    <route method="GET" url="/meet-team-api/kinspeed_meetteam">
+        <service class="Kinspeed\MeetTeam\Api\MeetTeamRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Magento_Customer::manage"/>
+        </resources>
+    </route>
+    <route method="POST" url="/meet-team-api/kinspeed_meetteam">
+        <service class="Kinspeed\MeetTeam\Api\MeetTeamRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Customer::manage"/>
+        </resources>
+    </route>
+    <route method="PUT" url="/meet-team-api/kinspeed_meetteam">
+        <service class="Kinspeed\MeetTeam\Api\MeetTeamRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Customer::manage"/>
+        </resources>
+    </route>
+    <route method="DELETE" url="/meet-team-api/kinspeed_meetteam">
+        <service class="Kinspeed\MeetTeam\Api\MeetTeamRepositoryInterface" method="delete"/>
+        <resources>
+            <resource ref="Magento_Customer::manage"/>
+        </resources>
+    </route>
+</routes>
