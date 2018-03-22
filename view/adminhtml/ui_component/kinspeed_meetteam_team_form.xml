@@ -122,7 +122,7 @@
                 </item>
             </argument>
         </field>
-        <field name="department">
+        <field name="department_id">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">Kinspeed\MeetTeam\Model\Department\AttributeSet\Options</item>
                 <item name="config" xsi:type="array">
@@ -152,7 +152,7 @@
         <field name="team">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Team</item>
+                    <item name="label" xsi:type="string">Team Member's Image</item>
                     <item name="formElement" xsi:type="string">fileUploader</item>
                     <item name="componentType" xsi:type="string">fileUploader</item>
                     <item name="notice" xsi:type="string" translate="true">Allowed file types: jpeg, gif, png</item>

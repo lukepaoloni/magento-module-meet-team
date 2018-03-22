@@ -8,8 +8,28 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Kinspeed_MeetTeam::team" title="Team" module="Kinspeed_MeetTeam" sortOrder="50" parent="Magento_Backend::content" action="kinspeed_meetteam/team" resource="Kinspeed_MeetTeam::team"/>
 
-        <add id="Kinspeed_MeetTeam::department" title="Department" module="Kinspeed_MeetTeam" sortOrder="50" parent="Magento_Backend::content" action="kinspeed_meetteam/department" resource="Kinspeed_MeetTeam::department"/>
+        <add id="Kinspeed_MeetTeam::team_management"
+             title="Team Management"
+             module="Kinspeed_MeetTeam"
+             sortOrder="9999"
+             parent="Magento_Backend::content"
+             resource="Magento_Backend::content" />
+
+        <add id="Kinspeed_MeetTeam::team"
+             title="Team Members"
+             module="Kinspeed_MeetTeam"
+             sortOrder="50"
+             parent="Kinspeed_MeetTeam::team_management"
+             action="kinspeed_meetteam/team"
+             resource="Kinspeed_MeetTeam::team"/>
+
+        <add id="Kinspeed_MeetTeam::department"
+             title="Departments"
+             module="Kinspeed_MeetTeam"
+             sortOrder="50"
+             parent="Kinspeed_MeetTeam::team_management"
+             action="kinspeed_meetteam/department"
+             resource="Kinspeed_MeetTeam::department"/>
     </menu>
 </config>

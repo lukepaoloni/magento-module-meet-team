@@ -7,16 +7,16 @@
      */
 
     namespace Kinspeed\MeetTeam\Model\Department\AttributeSet;
-    use Kinspeed\MeetTeam\Model\Department;
+    use Kinspeed\MeetTeam\Model\DepartmentFactory;
     use Magento\Framework\Data\OptionSourceInterface;
 
     class Options implements OptionSourceInterface
     {
 
-        private $_department;
+        private $_departmentFactory;
 
-        public function __construct(Department $department) {
-            $this->_department = $department;
+        public function __construct(DepartmentFactory $departmentFactory) {
+            $this->_departmentFactory = $departmentFactory;
         }
 
         /**
@@ -26,15 +26,19 @@
          */
         public function toOptionArray()
         {
-            $options [] = ['label' => '', 'value' => ''];
-            $departments = $this->_department->getData();
-            foreach ( $departments as $key => $department ) {
+            return $this->getOptionArray();
+        }
+    
+        public function getOptionArray()
+        {
+            $departments = $this->_departmentFactory->create()->getCollection();
+            $options = [];
+            foreach ($departments->getData() as $department) {
                 $options[] = [
-                    'label' => $department,
-                    'value' => $key
+                    'label' => $department['name'],
+                    'value' => $department['entity_id']
                 ];
             }
-
             return $options;
         }
 

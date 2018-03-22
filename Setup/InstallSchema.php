@@ -101,12 +101,18 @@
                 null,
                 ['nullable' => false, 'unsigned' => true],
                 'Department ID'
+            )->addColumn(
+                'position',
+                Table::TYPE_INTEGER,
+                null,
+                ['nullable' => false, 'unsigned' => true, 'default' => 0],
+                'Position'
             )->addForeignKey(
                 $setup->getFkName('kinspeed_team_entity', 'department_id', 'kinspeed_meetteam_department', 'entity_id'),
                 'department_id',
                 $setup->getTable('kinspeed_meetteam_department')    ,
                 'entity_id',
-                \Magento\Framework\DB\Ddl\Table::ACTION_SET_NULL
+                Table::ACTION_CASCADE
             );
 
             // Add more static attributes here...

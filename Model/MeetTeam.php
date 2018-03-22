@@ -11,6 +11,7 @@
     use Kinspeed\MeetTeam\Api\Data\MeetTeamInterface;
     use Kinspeed\MeetTeam\Api\Data\MeetTeamSearchResultInterface;
     use Magento\Framework\Model\AbstractExtensibleModel;
+    
 
     class MeetTeam extends AbstractExtensibleModel implements MeetTeamInterface
     {
@@ -18,6 +19,8 @@
         const JOB_TITLE = 'job_title';
         const ABOUT = 'about_me';
         const IMAGE_URL = 'team';
+        const DEPARTMENT_ID = 'department_id';
+        const POSITION = 'position';
         
         protected function _construct ()
         {
@@ -102,5 +105,23 @@
         public function setExtensionAttributes ( MeetTeamInterface $extensionAttributes )
         {
             $this->_setExtensionAttributes($extensionAttributes);
+        }
+    
+        /**
+         * @return mixed
+         */
+        public function getDepartment()
+        {
+            return null;
+        }
+    
+        public function getDepartments()
+        {
+            return 'Coming from Model';
+        }
+    
+        public function getPosition()
+        {
+            return $this->_getData(self::POSITION);
         }
     }

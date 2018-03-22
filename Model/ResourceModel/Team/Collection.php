@@ -118,6 +118,8 @@ class Collection extends AbstractCollection
         $this->_storeId = (int)$storeId;
         return $this;
     }
+    
+    
 
     /**
      * Return current store id

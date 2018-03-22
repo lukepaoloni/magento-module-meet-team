@@ -63,6 +63,16 @@
         public function getImage();
     
         /**
+         * @return mixed
+         */
+        public function getDepartmentId();
+        
+        public function setDepartmentId();
+        
+        
+        public function getPosition();
+    
+        /**
          * @return void
          */
         public function getExtensionAttributes();

@@ -10,14 +10,18 @@
 namespace Kinspeed\MeetTeam\Model;
 
 use Magento\Framework\DataObject\IdentityInterface;
+use Magento\Framework\Model\AbstractExtensibleModel;
 use Magento\Framework\Model\AbstractModel;
+use Kinspeed\MeetTeam\Api\Data\DepartmentInterface;
 
-class Department extends AbstractModel implements IdentityInterface
+class Department extends AbstractExtensibleModel implements DepartmentInterface
 {
     /**
      * CMS page cache tag
      */
     const CACHE_TAG = 'kinspeed_meetteam_department';
+    const NAME = 'name';
+    
 
     /**
      * @var string
@@ -40,6 +44,11 @@ class Department extends AbstractModel implements IdentityInterface
     {
         parent::_construct();
         $this->_init('Kinspeed\MeetTeam\Model\ResourceModel\Department');
+    }
+    
+    public function getName()
+    {
+        return $this->_getData(self::NAME);
     }
 
     /**
@@ -65,5 +74,15 @@ class Department extends AbstractModel implements IdentityInterface
             $this->getResource()->save($this);
         }
         return $this;
+    }
+    
+    public function getDepartments()
+    {
+        $this->_getData(self::NAME);
+    }
+    
+    public function getDepartment()
+    {
+        $this->_getData(self::NAME);
     }
 }

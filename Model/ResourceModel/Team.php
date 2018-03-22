@@ -58,7 +58,7 @@ class Team extends AbstractEntity
             'updated_at'
         ];
     }
-
+    
     /**
      * Set store Id
      *

@@ -242,7 +242,7 @@
                 </item>
             </argument>
         </column>
-        <column name="department">
+        <column name="department_id">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">Kinspeed\MeetTeam\Model\Department\AttributeSet\Options</item>
                 <item name="config" xsi:type="array">
