@@ -106,8 +106,7 @@
                     ),
                     'department_id',
                     $setup->getTable('kinspeed_meetteam_department'),
-                    'entity_id',
-                    Table::ACTION_CASCADE
+                    'entity_id'
                 );
                 // Add more static attributes here...
                 $table->addColumn(
