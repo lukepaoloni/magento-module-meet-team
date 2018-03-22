@@ -77,36 +77,11 @@
                     ['nullable' => false, 'unsigned' => true, 'default' => true],
                     'Is Active'
                 )->addColumn(
-                    'full_name',
-                    Table::TYPE_TEXT,
-                    255,
-                    ['nullable' => false],
-                    'Full Name'
-                )->addColumn(
-                    'job_title',
-                    Table::TYPE_TEXT,
-                    255,
-                    ['nullable' => false],
-                    'Job Title'
-                )->addColumn(
-                    'department_id',
-                    Table::TYPE_INTEGER,
-                    null,
-                    ['nullable' => true, 'unsigned' => true],
-                    'Department ID'
-                )->addColumn(
                     'position',
                     Table::TYPE_INTEGER,
                     null,
                     ['nullable' => false, 'unsigned' => true, 'default' => 0],
                     'Position'
-                )->addForeignKey(
-                    $setup->getFkName('kinspeed_team_entity', 'department_id', 'kinspeed_meetteam_department',
-                                      'entity_id'
-                    ),
-                    'department_id',
-                    $setup->getTable('kinspeed_meetteam_department'),
-                    'entity_id'
                 );
                 // Add more static attributes here...
                 $table->addColumn(

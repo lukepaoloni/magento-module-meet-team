@@ -82,8 +82,16 @@ class TeamSetup extends EavSetup
             'group' => 'General',
             'wysiwyg_enabled' => true,
         ];
-        
-        
+
+        $attributes['department_id'] = [
+            'type' => 'int',
+            'label' => 'Department',
+            'input' => 'select',
+            'source' => 'Kinspeed\MeetTeam\Model\Department\AttributeSet\Options',
+            'sort_order' => 10,
+            'global' => ScopedAttributeInterface::SCOPE_STORE,
+            'group' => 'General',
+        ];
 
         return $attributes;
     }

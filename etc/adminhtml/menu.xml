@@ -13,7 +13,7 @@
              title="Team Management"
              module="Kinspeed_MeetTeam"
              sortOrder="9999"
-             parent="Magento_Backend::content"
+             parent="Kinspeed_Module::first_level"
              resource="Magento_Backend::content" />
 
         <add id="Kinspeed_MeetTeam::team"

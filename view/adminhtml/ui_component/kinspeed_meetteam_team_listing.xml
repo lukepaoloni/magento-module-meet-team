@@ -242,7 +242,7 @@
                 </item>
             </argument>
         </column>
-        <column name="department_id">
+<!--         <column name="department_id">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">Kinspeed\MeetTeam\Model\Department\AttributeSet\Options</item>
                 <item name="config" xsi:type="array">
@@ -251,10 +251,10 @@
                     <item name="editor" xsi:type="string">select</item>
                     <item name="dataType" xsi:type="string">select</item>
                     <item name="label" xsi:type="string" translate="true">Department</item>
-                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">false</item>
                 </item>
             </argument>
-        </column>
+        </column> -->
         <column name="position">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

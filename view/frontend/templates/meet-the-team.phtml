@@ -16,7 +16,7 @@
     <?php foreach ($teamMembers as $member): ?>
     <div class="meet__team--item pull-left">
         <a href="#modal-<?= $member->getId(); ?>">
-            <img src="<?= $member->getImageSrc(); ?>" class="slider-image" data-id="<?= $member->getId(); ?>" alt="<?=
+            <img src="<?php // $member->getImageSrc(); ?>" class="slider-image" data-id="<?= $member->getId(); ?>" alt="<?=
                 $member->getName(); ?>">
         </a>
         <div class="remodal" data-remodal-id="modal-<?= $member->getId(); ?>">
@@ -24,13 +24,13 @@
             <div class="modal-content">
                 <div class="row">
                     <div class="col-xs-12 col-sm-4 col-40">
-                        <img src="<?= $member->getImageSrc(); ?>" alt="<?=
+                        <img src="<?php // $member->getImageSrc(); ?>" alt="<?=
                             $member->getName(); ?>">
                     </div>
                     <div class="col-xs-12 col-sm-8 col-60">
                         <h4 class="popupContent__name">
                             <?= $member->getName(); ?>
-                            <?= $member->getDepartments(); ?>
+                            <?php // $member->getDepartments(); ?>
                         </h4>
                         <h4 class="popupContent__job-title">
                             <?= $member->getJobTitle(); ?>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-8 col-mt-50">
                         <div class="bottom-text">
-                            <?= $member->getAboutMe(); ?>
+                            <?= $block->getAboutInfoHtml($member); ?>
                         </div>
                     </div>
                 </div>
