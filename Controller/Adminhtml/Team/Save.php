@@ -43,6 +43,9 @@ class Save extends Action
      */
     public function execute()
     {
+
+        echo "<pre>";
+
         $storeId = (int)$this->getRequest()->getParam('store_id');
         $data = $this->getRequest()->getParams();
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
@@ -77,6 +80,7 @@ class Save extends Action
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
+
                 $this->messageManager->addErrorMessage($e->getMessage());
                 $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the record.'));
             }
