@@ -67,7 +67,7 @@
          */
         public function getDepartmentId();
         
-        public function setDepartmentId();
+        public function setDepartmentId($department_id);
         
         
         public function getPosition();

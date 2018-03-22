@@ -92,7 +92,7 @@
                     'department_id',
                     Table::TYPE_INTEGER,
                     null,
-                    ['nullable' => false, 'unsigned' => true],
+                    ['nullable' => true, 'unsigned' => true],
                     'Department ID'
                 )->addColumn(
                     'position',

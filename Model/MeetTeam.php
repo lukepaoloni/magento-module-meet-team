@@ -107,21 +107,21 @@
             $this->_setExtensionAttributes($extensionAttributes);
         }
     
-        /**
-         * @return mixed
-         */
-        public function getDepartment()
-        {
-            return null;
-        }
-    
-        public function getDepartments()
-        {
-            return 'Coming from Model';
-        }
-    
         public function getPosition()
         {
             return $this->_getData(self::POSITION);
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getDepartmentId()
+        {
+            return $this->_getData(self::DEPARTMENT_ID);
+        }
+
+        public function setDepartmentId($department_id)
+        {
+            $this->setData(self::DEPARTMENT_ID);
         }
     }
