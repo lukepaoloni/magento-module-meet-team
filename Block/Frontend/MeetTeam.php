@@ -50,6 +50,7 @@ class MeetTeam extends Template
         $teamCollection = $this->teamCollectionFactory->create()->getCollection();
         $teamCollection->addAttributeToSelect('*');
         $teamCollection->addAttributeToFilter('is_active', '1');
+        $teamCollection->setOrder('position', 'ASC');
         return $teamCollection;
     }
     
