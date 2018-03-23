@@ -76,12 +76,6 @@
                     null,
                     ['nullable' => false, 'unsigned' => true, 'default' => true],
                     'Is Active'
-                )->addColumn(
-                    'position',
-                    Table::TYPE_INTEGER,
-                    null,
-                    ['nullable' => false, 'unsigned' => true, 'default' => 0],
-                    'Position'
                 );
                 // Add more static attributes here...
                 $table->addColumn(

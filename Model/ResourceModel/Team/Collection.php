@@ -18,6 +18,7 @@ use Magento\Framework\Data\Collection\Db\FetchStrategyInterface;
 use Magento\Framework\Data\Collection\EntityFactory;
 use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\Event\ManagerInterface;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Validator\UniversalFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
@@ -118,8 +119,45 @@ class Collection extends AbstractCollection
         $this->_storeId = (int)$storeId;
         return $this;
     }
-    
-    
+
+    /**
+     * @param $code
+     *
+     * @return \Magento\Eav\Model\Entity\Attribute\AbstractAttribute|string
+     */
+    public function getAttributeCode($code)
+    {
+        try {
+            return $this->_eavConfig->getAttribute('kinspeed_team', $code)->getId();
+        }
+        catch (LocalizedException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /**
+     * @param null   $limit
+     * @param string $sort
+     * @param bool   $isActive
+     *
+     * @return string
+     */
+    public function getTeamMembersCollection($limit = null, $sort = 'ASC', $isActive = true)
+    {
+        try {
+            $this->addAttributeToSelect('*');
+            $this->addAttributeToSelect('department_id', true);
+            $this->addAttributeToFilter('is_active', $isActive);
+            $this->addFieldToFilter('is_active', $isActive);
+            $this->addAttributeToSort('position', $sort);
+
+            // TODO: Groupby returns only 1 result.
+            return $this;
+        }
+        catch (LocalizedException $e) {
+            return $e->getMessage();
+        }
+    }
 
     /**
      * Return current store id

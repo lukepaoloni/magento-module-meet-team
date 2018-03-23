@@ -72,12 +72,22 @@ class TeamSetup extends EavSetup
             'group' => 'General',
             'validate_rules' => 'a:2:{s:15:"max_text_length";i:255;s:15:"min_text_length";i:1;}',
         ];
+
+        $attributes['position'] = [
+            'type' => 'int',
+            'label' => 'Position',
+            'input' => 'text',
+            'sort_order' => 50,
+            'global' => ScopedAttributeInterface::SCOPE_STORE,
+            'group' => 'General',
+            'validate_rules' => 'a:2:{s:15:"max_text_length";i:255;s:15:"min_text_length";i:1;}',
+        ];
         $attributes['about_me'] = [
             'type' => 'text',
             'label' => 'About Me',
             'input' => 'textarea',
             'required' => true, //true/false
-            'sort_order' => 20,
+            'sort_order' => 60,
             'global' => ScopedAttributeInterface::SCOPE_STORE,
             'group' => 'General',
             'wysiwyg_enabled' => true,
@@ -88,7 +98,7 @@ class TeamSetup extends EavSetup
             'label' => 'Department',
             'input' => 'select',
             'source' => 'Kinspeed\MeetTeam\Model\Department\AttributeSet\Options',
-            'sort_order' => 10,
+            'sort_order' => 40,
             'global' => ScopedAttributeInterface::SCOPE_STORE,
             'group' => 'General',
         ];

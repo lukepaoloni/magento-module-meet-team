@@ -21,12 +21,14 @@
     use Kinspeed\MeetTeam\Api\Data\MeetTeamInterface;
 
     use Kinspeed\MeetTeam\Api\Data\MeetTeamSearchResultInterface;
-
+    use Magento\Framework\Api\AttributeValueFactory;
+    use Magento\Framework\Api\ExtensionAttributesFactory;
+    use Magento\Framework\Data\Collection\AbstractDb;
+    use Magento\Framework\Exception\LocalizedException;
     use Magento\Framework\Model\AbstractExtensibleModel;
-
-    
-
-
+    use Magento\Framework\Model\Context;
+    use Magento\Framework\Model\ResourceModel\AbstractResource;
+    use Magento\Framework\Registry;
 
     class MeetTeam extends AbstractExtensibleModel implements MeetTeamInterface
 
@@ -44,7 +46,16 @@
 
         const POSITION = 'position';
 
-        
+
+        /*
+         * @var Kinspeed\MeetTeam\Model\ResourceModel\Team\Collection
+         */
+        public $teamCollection;
+        /**
+         * @var \Kinspeed\MeetTeam\Model\ResourceModel\Team\CollectionFactory
+         */
+        private $teamCollectionFactory;
+
 
         protected function _construct ()
 
@@ -53,7 +64,6 @@
             $this->_init(ResourceModel\Team::class);
 
         }
-
     
 
         /**
@@ -135,11 +145,20 @@
          */
 
         public function getAboutMe ()
-
         {
 
             return $this->_getData(self::ABOUT);
 
+        }
+
+        public function getProcessedAboutMe()
+        {
+
+        }
+
+        public function getDepartment()
+        {
+            return $this->_getData(self::DEPARTMENT_ID);
         }
 
     

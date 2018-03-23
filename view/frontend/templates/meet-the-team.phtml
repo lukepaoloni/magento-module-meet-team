@@ -16,29 +16,29 @@
     <?php foreach ($teamMembers as $member): ?>
     <div class="meet__team--item pull-left">
         <a href="#modal-<?= $member->getId(); ?>">
-            <img src="<?php // $member->getImageSrc(); ?>" class="slider-image" data-id="<?= $member->getId(); ?>" alt="<?=
-                $member->getName(); ?>">
+            <img src="<?= $block->getImageForTeamMemberById($member->getId()); ?>" class="slider-image" data-id="<?= $member->getId(); ?>" alt="<?=
+                $member->getData('full_name'); ?>">
         </a>
         <div class="remodal" data-remodal-id="modal-<?= $member->getId(); ?>">
             <button class="remodal-close" data-remodal-action="close"></button>
             <div class="modal-content">
                 <div class="row">
                     <div class="col-xs-12 col-sm-4 col-40">
-                        <img src="<?php // $member->getImageSrc(); ?>" alt="<?=
-                            $member->getName(); ?>">
+                        <img src="<?= $block->getImageForTeamMemberById($member->getId()); ?>" alt="<?=
+                            $member->getData('full_name'); ?>">
                     </div>
                     <div class="col-xs-12 col-sm-8 col-60">
                         <h4 class="popupContent__name">
-                            <?= $member->getName(); ?>
-                            <?php // $member->getDepartments(); ?>
+                            <?= $member->getData('full_name'); ?>
+                            <?= $block->getDepartmentNameById($member->getData('department_id')); ?>
                         </h4>
                         <h4 class="popupContent__job-title">
-                            <?= $member->getJobTitle(); ?>
+                            <?= $member->getData('job_title'); ?>
                         </h4>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-mt-50">
                         <div class="bottom-text">
-                            <?= $block->getAboutInfoHtml($member); ?>
+                            <?= $block->getAboutMeProcessed($member) ?>
                         </div>
                     </div>
                 </div>
