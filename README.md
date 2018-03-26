@@ -10,6 +10,3 @@ This is a Magento 2.2.x module that allows a user to create/edit team members, a
 - `git clone https://github.com/lukepaoloni/magento-module-meet-team.git MeetTeam`
 - `php bin/magento setup:upgrade`
 - `php bin/magento setup:static-content:deploy -f`
-####Todo:
-1. Added grouping
-2. Test position sorting
