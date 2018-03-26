@@ -147,11 +147,11 @@ class Collection extends AbstractCollection
         try {
             $this->addAttributeToSelect('*');
             $this->addAttributeToSelect('department_id', true);
+            $this->addAttributeToSelect('position', true);
             $this->addAttributeToFilter('is_active', $isActive);
             $this->addFieldToFilter('is_active', $isActive);
+            $this->addAttributeToSort('department_id', $sort);
             $this->addAttributeToSort('position', $sort);
-
-            // TODO: Groupby returns only 1 result.
             return $this;
         }
         catch (LocalizedException $e) {

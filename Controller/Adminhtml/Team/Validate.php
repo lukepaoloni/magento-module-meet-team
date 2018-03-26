@@ -42,7 +42,8 @@ class Validate extends Action
         $requiredFields = [
             'full_name' => __('Team Member\'s Full Name'),
             'job_title' => __('Team Member\'s Job Title'),
-            'about_me' => __('Team Member\'s About Information')
+            'about_me' => __('Team Member\'s About Information'),
+            'is_active' => __('Team Member needs to be set as active or inactive.')
         ];
         foreach ($data as $field => $value) {
             if (in_array($field, array_keys($requiredFields)) && $value == '') {

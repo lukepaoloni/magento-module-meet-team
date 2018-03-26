@@ -66,10 +66,17 @@
          * @return mixed
          */
         public function getDepartmentId();
-        
+
+        /**
+         * @param $department_id
+         *
+         * @return mixed
+         */
         public function setDepartmentId($department_id);
-        
-        
+
+        /**
+         * @return mixed
+         */
         public function getPosition();
     
         /**

@@ -23,7 +23,8 @@ class DataProvider extends UiDataProvider
             ->addAttributeToSelect([
                 'team',
                 'full_name',
-                'job_title'
+                'job_title',
+                'position'
                                    ]); // Add here needed EAV attributes to display on grid
 
         return parent::searchResultToOutput($searchResult);
