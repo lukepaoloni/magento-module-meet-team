@@ -12,9 +12,8 @@ namespace Kinspeed\MeetTeam\Model;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractExtensibleModel;
 use Magento\Framework\Model\AbstractModel;
-use Kinspeed\MeetTeam\Api\Data\DepartmentInterface;
 
-class Department extends AbstractExtensibleModel implements DepartmentInterface
+class Department extends AbstractExtensibleModel
 {
     /**
      * CMS page cache tag

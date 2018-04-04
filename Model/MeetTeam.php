@@ -17,10 +17,6 @@
     namespace Kinspeed\MeetTeam\Model;
 
     
-
-    use Kinspeed\MeetTeam\Api\Data\MeetTeamInterface;
-
-    use Kinspeed\MeetTeam\Api\Data\MeetTeamSearchResultInterface;
     use Magento\Framework\Api\AttributeValueFactory;
     use Magento\Framework\Api\ExtensionAttributesFactory;
     use Magento\Framework\Data\Collection\AbstractDb;
@@ -30,7 +26,7 @@
     use Magento\Framework\Model\ResourceModel\AbstractResource;
     use Magento\Framework\Registry;
 
-    class MeetTeam extends AbstractExtensibleModel implements MeetTeamInterface
+    class MeetTeam extends AbstractExtensibleModel
 
     {
 
@@ -210,27 +206,6 @@
         {
 
             return $this->_getExtensionAttributes();
-
-        }
-
-    
-
-        /**
-
-         * @param \Kinspeed\MeetTeam\Api\Data\MeetTeamInterface $extensionAttributes
-
-         *
-
-         * @return void
-
-         */
-
-        public function setExtensionAttributes ( MeetTeamInterface $extensionAttributes )
-
-        {
-
-            $this->_setExtensionAttributes($extensionAttributes);
-
         }
 
     
