@@ -8,7 +8,6 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- Temporal fix to 2.1 problem with eav attributes: https://github.com/magento/magento2/issues/5339 -->
-    <preference for="Kinspeed\MeetTeam\Api\MeetTeamRepositoryInterface" type="Kinspeed\MeetTeam\Model\MeetTeamRepository"/>
     <preference for="Kinspeed\MeetTeam\Api\Data\MeetTeamInterface" type="Kinspeed\MeetTeam\Model\MeetTeam"/>
     <preference for="Kinspeed\MeetTeam\Api\Data\MeetTeamSearchResultInterface" type="Kinspeed\MeetTeam\Model\MeetTeamSearchResult"/>
     <type name="Magento\Eav\Model\Entity\AttributeCache">
